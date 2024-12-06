@@ -47,7 +47,8 @@ struct GColorMatrix {
 /**
  * Override and implement these methods. You must implement GCreateFinal() to return your subclass.
  *
- * Each method has a default (do nothing) impl, so you only need to override the ones you intended to implement.
+ * Each method has a default (do nothing) impl, so you only need to override the ones you intended
+ * to implement.
  */
 class GFinal {
 public:
@@ -58,14 +59,14 @@ public:
      * The color any any (x,y) is the color of the closest point from the array.
      */
     virtual std::shared_ptr<GShader> createVoronoiShader(const GPoint points[],
-                                                         const GColor colors[],
-                                                         int count) {
+                                                         const GColor colors[], int count) {
         return nullptr;
     }
 
     /**
-     *  Return a sweep-gradient shader, centered at 'center', starting wiht color[0] at  startRadians
-     *  and ending with colors[count-1] at startRadians+2pi. The colors are distributed evenly around the sweep.
+     *  Return a sweep-gradient shader, centered at 'center', starting wiht color[0] at startRadians
+     *  and ending with colors[count-1] at startRadians+2pi. The colors are distributed evenly
+     * around the sweep.
      */
     virtual std::shared_ptr<GShader> createSweepGradient(GPoint center, float startRadians,
                                                          const GColor colors[], int count) {
@@ -91,8 +92,7 @@ public:
      */
     virtual std::shared_ptr<GShader> createLinearPosGradient(GPoint p0, GPoint p1,
                                                              const GColor colors[],
-                                                             const float pos[],
-                                                             int count) {
+                                                             const float pos[], int count) {
         return nullptr;
     }
 
@@ -118,7 +118,8 @@ public:
      *
      *  Any caps or joins needed should be round (circular).
      */
-    virtual std::shared_ptr<GPath> strokePolygon(const GPoint[], int count, float width, bool isClosed) {
+    virtual std::shared_ptr<GPath> strokePolygon(const GPoint[], int count, float width,
+                                                 bool isClosed) {
         return nullptr;
     }
 
@@ -149,8 +150,8 @@ public:
      *
      *      Corners is computed by our standard "drawQuad" evaluation using the 4 corners 0,2,4,6
      */
-    virtual void drawQuadraticCoons(GCanvas*, const GPoint pts[8], const GPoint tex[4],
-                                    int level, const GPaint&) {}
+    virtual void drawQuadraticCoons(GCanvas*, const GPoint pts[8], const GPoint tex[4], int level,
+                                    const GPaint&) {}
 };
 
 /**
